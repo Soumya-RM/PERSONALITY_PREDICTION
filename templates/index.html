@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EXTROVERT OR INTROVERT PERSONALITY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Personality Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="Time_spent_Alone">Time_spent_Alone:</label>
+            <input type="number" name="Time_spent_Alone" required>
+            
+            <label for="Social_event_attendance">Social_event_attendance:</label>
+            <input type="number" name="Social_event_attendance" required>
+            
+            <label for="Going_outside">Going_outside:</label>
+            <input type="number" name="Going_outside" required>
+            
+            <label for="Friends_circle_size">Friends_circle_size:</label>
+            <input type="number" name="Friends_circle_size" required>
+            
+            <label for="Post_frequency">Post_frequency:</label>
+            <input type="number" name="Post_frequency" required>
+
+            <label for="Stage_fear_Yes">Stage_fear_Yes:</label>
+            <input type="number" name="Stage_fear_Yes" required>
+
+            <label for="Drained_after_socializing_Yes">Drained_after_socializing_Yes:</label>
+            <input type="number" name="Drained_after_socializing_Yes" required>
+
+            <input type="submit" value="Personality_Introvert">
+        </form>
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
